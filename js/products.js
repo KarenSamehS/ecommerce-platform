@@ -86,7 +86,28 @@ if (logoutBtn) {
 
 // addToCart will be built in the cart phase
 function addToCart(id) {
-    alert('Cart coming soon!');
+    const products = storageGet('products') || [];
+    const product = products.find(function(p) { return p.id === id; });
+
+    const cart = storageGet('cart') || [];
+
+    // Check if already in cart
+    const existingItem = cart.find(function(i) { return i.id === id; });
+
+    if (existingItem) {
+        existingItem.qty += 1;
+        storageSet('cart', cart);
+    } else {
+        cart.push({
+            id: product.id,
+            name: product.name,
+            price: parseFloat(product.price),
+            qty: 1
+        });
+        storageSet('cart', cart);
+    }
+
+    alert(`${product.name} added to cart!`);
 }
 
 

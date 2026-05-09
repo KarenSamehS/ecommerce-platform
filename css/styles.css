@@ -343,3 +343,133 @@ h1{
 .product-card button:hover {
     background-color: teal;
 }
+
+#logoutBtn,#cartBtn{
+	height: 40px;
+	width: 100px;
+	background-color: cadetblue;
+	color: aliceblue;
+	cursor: pointer;
+	border: none;
+}
+
+#logoutBtn:hover,#cartBtn:hover{
+	background-color: aliceblue;
+	color: cadetblue;
+}
+
+/* ========================
+   CART PAGE
+   ======================== */
+
+#emptyCart {
+    text-align: center;
+    margin-top: 60px;
+    color: cadetblue;
+}
+
+#emptyCart p {
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+#emptyCart button {
+    padding: 10px 24px;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+#emptyCart button:hover {
+    background-color: teal;
+}
+
+#cart-container {
+    width: 85%;
+    margin: 20px auto;
+}
+
+#cart-container table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+#cart-container th {
+    background-color: cadetblue;
+    color: white;
+    padding: 12px 16px;
+    text-align: left;
+}
+
+#cart-container td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #eee;
+    color: teal;
+}
+
+#cart-container tr:last-child td {
+    border-bottom: none;
+}
+
+/* Quantity buttons */
+#cart-container td button {
+    padding: 4px 10px;
+    border: none;
+    border-radius: 6px;
+    background-color: cadetblue;
+    color: white;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 0 4px;
+    transition: 0.2s ease;
+}
+
+#cart-container td button:hover {
+    background-color: teal;
+}
+
+/* Remove button */
+#cart-container tr td:last-child button {
+    background-color: #e74c3c;
+}
+
+#cart-container tr td:last-child button:hover {
+    background-color: #c0392b;
+}
+
+#cartTotal {
+    text-align: right;
+    margin-top: 20px;
+    font-size: 18px;
+    color: teal;
+}
+
+#cartTotal strong {
+    color: cadetblue;
+    font-size: 22px;
+}
+
+#cartTotal button {
+    margin-top: 10px;
+    padding: 12px 30px;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+#cartTotal button:hover {
+    background-color: teal;
+    transform: translateY(-2px);
+}
