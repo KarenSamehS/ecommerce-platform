@@ -4,7 +4,7 @@ const emailInput=document.getElementById("email");
 const passwordInput=document.getElementById("password");
 const submitRegBtn = document.getElementById("submitReg");
 
-
+if (submitRegBtn) {
 submitRegBtn.addEventListener('click',()=>{
 	firstname= firstnameInput.value.trim();
 	lastname= lastnameInput.value.trim();
@@ -46,7 +46,7 @@ submitRegBtn.addEventListener('click',()=>{
 
 		const p = document.createElement('p');
 		p.innerHTML= `Account Registered Successfully ${firstname}, please login to your account` ;
-		p.setAttribute("style","color:green")
+		p.setAttribute("style","color:green");
 		document.getElementById("success").appendChild(p);
 
 		// Clear the form
@@ -54,9 +54,43 @@ submitRegBtn.addEventListener('click',()=>{
         lastnameInput.value = '';
         emailInput.value = '';
         passwordInput.value = '';
-		}
-
-
-
-	
+		}	
 })
+}
+const logEmailInput =document.getElementById("logEmail");
+const logPasswordInput =document.getElementById("logPassword");
+const submitLogBtn = document.getElementById("submitLeg");
+
+if(submitLogBtn){
+submitLogBtn.addEventListener("click",()=>{
+	const email= emailInput.value;
+	const password= passwordInput.value
+
+	// Get existing users from localStorage (or empty array if none)
+    const users = storageGet('users') || [];
+
+	// Check if email already exists
+    const matchedUser  = users.find(user => user.email === email  && user.password === password);
+		
+
+		if(! matchedUser){
+			alert("Email or password is incorrect")
+
+			emailInput.value = '';
+   	  passwordInput.value = '';
+
+		}else{
+			// Save session so other pages know who is logged in
+            storageSet('session', {
+                id: matchedUser.id,
+                firstname: matchedUser.firstname,
+                email: matchedUser.email,
+                role: matchedUser.role
+            });
+						if(matchedUser.role=='admin')
+							window.location.href = '../admin/dashboard.html';
+						else
+							window.location.href = '../products.html';
+		}
+})
+}
