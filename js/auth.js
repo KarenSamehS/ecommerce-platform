@@ -59,12 +59,12 @@ submitRegBtn.addEventListener('click',()=>{
 }
 const logEmailInput =document.getElementById("logEmail");
 const logPasswordInput =document.getElementById("logPassword");
-const submitLogBtn = document.getElementById("submitLeg");
+const submitLogBtn = document.getElementById("submitLog");
 
 if(submitLogBtn){
 submitLogBtn.addEventListener("click",()=>{
-	const email= emailInput.value;
-	const password= passwordInput.value
+	const email= logEmailInput.value;
+	const password= logPasswordInput.value
 
 	// Get existing users from localStorage (or empty array if none)
     const users = storageGet('users') || [];
@@ -73,7 +73,7 @@ submitLogBtn.addEventListener("click",()=>{
     const matchedUser  = users.find(user => user.email === email  && user.password === password);
 		
 
-		if(! matchedUser){
+		if(!matchedUser){
 			alert("Email or password is incorrect")
 
 			emailInput.value = '';
@@ -87,10 +87,27 @@ submitLogBtn.addEventListener("click",()=>{
                 email: matchedUser.email,
                 role: matchedUser.role
             });
-						if(matchedUser.role=='admin')
+						if(matchedUser.role=='admin'){
 							window.location.href = '../admin/dashboard.html';
+						}
 						else
 							window.location.href = '../products.html';
 		}
 })
+}
+// In auth.js — REMOVE BEFORE SUBMISSION
+const createAdminBtn = document.getElementById("createAdmin");
+if (createAdminBtn) {
+    createAdminBtn.addEventListener('click', () => {
+        const adminUser = {
+            id: Date.now(),
+            firstname: "Admin",
+            lastname: "User",
+            email: "admin@test.com",
+            password: "Admin_123",
+            role: "admin"
+        };
+        storageAppend('users', adminUser);
+        alert("Admin created! Email: admin@test.com | Password: Admin_123");
+    });
 }
