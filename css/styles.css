@@ -714,3 +714,34 @@ h1{
     background-color: teal;
     transform: translateY(-2px);
 }
+/* ========================
+   SEED SECTION
+   ======================== */
+
+#seedDiv {
+    text-align: center;
+    margin-top: 60px;
+    color: teal;
+}
+
+#seedDiv p {
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+#seedDiv button {
+    padding: 10px 24px;
+    background-color: cadetblue;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 15px;
+    cursor: pointer;
+    font-family: cursive;
+    transition: 0.2s ease;
+}
+
+#seedDiv button:hover {
+    background-color: teal;
+    transform: translateY(-2px);
+}

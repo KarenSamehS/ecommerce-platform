@@ -95,19 +95,3 @@ submitLogBtn.addEventListener("click",()=>{
 		}
 })
 }
-// In auth.js — REMOVE BEFORE SUBMISSION
-const createAdminBtn = document.getElementById("createAdmin");
-if (createAdminBtn) {
-    createAdminBtn.addEventListener('click', () => {
-        const adminUser = {
-            id: Date.now(),
-            firstname: "Admin",
-            lastname: "User",
-            email: "admin@test.com",
-            password: "Admin_123",
-            role: "admin"
-        };
-        storageAppend('users', adminUser);
-        alert("Admin created! Email: admin@test.com | Password: Admin_123");
-    });
-}
